@@ -6,3 +6,9 @@
 3. 적절한 네이밍
 
 *WAI-ARIA -> div로 구성된 소스코드를 접근성좋게 해줌
+
+* http://bit.ly/AOA11Y -> 
+
+* 웹폰트 추천
+ - 구글사 (Noto Sans)
+ - 어도비사 (Spoqa han Sans)
