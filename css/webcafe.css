@@ -97,7 +97,7 @@ input[type="search"]{
   }
   /* 모바일 메인메뉴 */
   .btn-menubar{
-    background: blue;
+    background: transparent;
     width: 30px;
     height: 30px;
     border: 0;
@@ -105,6 +105,7 @@ input[type="search"]{
     position: absolute;
     top: 55px;
     right: 20px;
+    overflow: hidden;
   }
   .menubar{
     background: #fff;
@@ -113,6 +114,7 @@ input[type="search"]{
     position: absolute;
     left: 0;
     border-radius: 2px;
+    transition: all .2s ease;
   }
   .menubar-top{
     top: 0;
@@ -124,10 +126,7 @@ input[type="search"]{
   .menubar-bottom{
     top: 100%;
     transform: translateY(-100%);
-  }
-  .is-act{
-    overflow: hidden;
-  }
+  }  
   .is-act .menubar-top{
     top: 50%;
     transform: translateY(-50%) rotate(45deg);
@@ -138,6 +137,20 @@ input[type="search"]{
   .is-act .menubar-bottom{
     top: 50%;
     transform: translateY(-50%) rotate(-45deg);
+  }
+  .menu{
+    width: 70%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.85);
+    color: #fff;
+    transform: translateX(-100%);
+    transition: all .4s ease;
+  }
+  .is-act .menu{
+    transform: translateX(0);
   }
 }
 /* 데스크탑 레이아웃 */
