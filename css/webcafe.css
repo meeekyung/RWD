@@ -2,6 +2,22 @@
 @import url('https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css');
 @import url('./normalize.css');
 @import url('./reset.css');
+/* 숨김 콘텐츠 */
+/* legend{
+  background: yellow;
+  position: absolute;
+  left: -9999em;
+  display:none은 모바일환경에서 읽혀지지 않으므로 지향하는 소스이다.
+} */
+legend, .a11y-hidden{
+  position: absolute;
+  /* 최소한의 커서를 존재시키기 위해 */
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
 /* 링크스타일 */
 a{
   color: inherit;
@@ -17,4 +33,106 @@ body{
   font-size: 1.4rem;
   background: #fff;
   color: #181818;
+}
+/* 공통 스타일 */
+*, *::before, *::after{
+  box-sizing: border-box;
+}
+/* 모바일 레이아웃 */
+@media screen and (min-width: 320px) and (max-width: 999px){
+  .header{
+    background: #38302e;
+    color: #fff;
+    display: flex; /*flex-direction: row가 기본세팅되어 있음!*/
+    flex-direction: row; /*row는 수평 왼쪽이 기준축, column은 수직 위쪽이 기준축, reverse는 반대로*/
+    flex-wrap: wrap; /*wrap을 통해 줄바꿈을 허용 반대는 no-wrap*/
+  }
+  .logo, .member, .search-form{
+    width: 100%;
+    padding: 0 20px;
+  }
+  /* 모바일 로고 */
+  .logo{
+    background: yellow;
+  }
+  /* 모바일 멤버 링크 */
+  .member{
+    background:#988574;
+    /* margin: 0 -20px; 부모에게 width:100%를 준 뒤 display:flex 때문에 적용이 어려움 */
+    order: -1;
+    display: flex;
+    justify-content: flex-end;/*오른쪽으로 배분*/
+    padding-top: 2px; /*tab 시 아웃라인이 균등한 두께로 보이기 위함*/
+    padding-bottom: 2px; /*tab 시 아웃라인이 균등한 두께로 보이기 위함*/
+  }
+  .member a{
+    display: block;
+    padding: 5px 2px;
+    margin-left: 1em;
+  }
+  /* 모바일 검색 폼 */
+  .search-form{
+    background: skyblue;
+  }
+}
+/* 데스크탑 레이아웃 */
+@media screen and (min-width: 1000px){
+  .header {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+  }
+  /* 데스크탑 로고 */
+  .logo{
+   position: absolute;
+    top: 50%;
+    left: 15px;
+    margin-top: -29px;
+    /* transform: translateY(-50%); */
+  }
+  .logo img{
+    vertical-align: top; /*img 하단에 생기는 인라인구조특성상의 여백을 없애주는 기능*/
+  }
+  /* 데스크탑 멤버링크 */
+  .member{
+    font-size: 0; /*display:inline에서 발생하는 공백을 없애주는 방법*/
+    text-align: right; /*display:block 개체에 줘야하는 소스이며, 자식에게 inline속성을 있을 때 정렬이 가능하다*/
+    padding: 2px 0; /*tap을 할때 생기는 아웃라인을 일정한 두께를 주기 위해*/
+    margin-right: -1.4rem;
+    /* position: relative;
+    left: 1.4rem; */
+  }
+  .member li, .member a{
+    display: inline-block;
+  }
+  .member li{
+    display: inline-block;
+    font-size: 1.4rem;
+  }
+  .member li:nth-child(n+2)::before{
+    content: '|';
+  }
+  .member a{
+    padding: 0.5em 1em;
+  }
+  /* 데스크탑 검색폼 */
+  .search-form{
+    text-align: right;
+  }
+  input[type="search"]{
+    border: 1px solid #666;
+    border-radius: 5px;
+    width: 400px;
+    height: 28px;
+    padding: 5px 10px;
+  }
+  .btn-search{
+    width: 50px;
+    height: 28px;
+    padding: 5px 10px;
+    border: 1px solid #666;
+    background: #988574;
+    border-radius: 5px;
+    color: #fff;
+  }
 }
