@@ -38,22 +38,35 @@ body{
 *, *::before, *::after{
   box-sizing: border-box;
 }
+/* 공통 검색 폼 */
+input[type="search"]{
+  border: 1px solid #666;
+  border-radius: 5px;
+  height: 30px;
+  padding: 5px 10px;
+}
+.search-form label, input[type="search"], .btn-search{
+  vertical-align: middle;
+}
 /* 모바일 레이아웃 */
 @media screen and (min-width: 320px) and (max-width: 999px){
   .header{
     background: #38302e;
     color: #fff;
+    padding-bottom: 1em;
     display: flex; /*flex-direction: row가 기본세팅되어 있음!*/
     flex-direction: row; /*row는 수평 왼쪽이 기준축, column은 수직 위쪽이 기준축, reverse는 반대로*/
     flex-wrap: wrap; /*wrap을 통해 줄바꿈을 허용 반대는 no-wrap*/
   }
   .logo, .member, .search-form{
     width: 100%;
-    padding: 0 20px;
+    padding-left:20px;
+    padding-right:20px;
   }
   /* 모바일 로고 */
   .logo{
-    background: yellow;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
   }
   /* 모바일 멤버 링크 */
   .member{
@@ -72,7 +85,17 @@ body{
   }
   /* 모바일 검색 폼 */
   .search-form{
-    background: skyblue;
+    
+  }
+  input[type="search"]{
+    width: calc(100% - 35px); /*공백문자를 감안한 5px정도의 여유를 줌*/
+  }
+  .btn-search{
+    background: transparent url(./images/btn_search.png) no-repeat;
+    background-size: 100%; /*가로,세로 모두 줌*/
+    width: 30px;
+    height: 30px;
+    border: none;
   }
 }
 /* 데스크탑 레이아웃 */
@@ -120,19 +143,17 @@ body{
     text-align: right;
   }
   input[type="search"]{
-    border: 1px solid #666;
-    border-radius: 5px;
     width: 400px;
-    height: 28px;
-    padding: 5px 10px;
   }
   .btn-search{
-    width: 50px;
-    height: 28px;
+    height: 30px;
     padding: 5px 10px;
     border: 1px solid #666;
     background: #988574;
     border-radius: 5px;
     color: #fff;
+  }
+  .btn-search::before{
+    content: '검색';
   }
 }
