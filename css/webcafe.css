@@ -165,5 +165,34 @@ input[type="search"]{
   }
   .navigation{
     background: #988574;
+    box-shadow: 0px -2px 3px 0 #726558, 0px 2px 3px 0 #726558;
+  }
+  .menu{
+    /* overflow: hidden; float의 오류를 막는 방법이지만 추천하지는 않음 */
+  }
+  .menu::after{
+    content: '';
+    clear: both;
+    display:block;
+  }
+  .menu li{
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+  .menu-list{
+    float: left;
+    color: #fff;
+    margin-left: 111px;
+  }
+  .menu-item{
+    font-size: 1.6rem;
+    font-weight: 700;
+    text-shadow: 1px 0 0 #000, -1px 0 0 #000, 0 1px 0 #000, 0 -1px 0 #000;
+  }
+  .sub-menu{
+    margin-left: 1.5em;
+  }
+  .menu .menu-list:first-child{
+    margin-left: 0;
   }
 }
