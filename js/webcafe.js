@@ -30,12 +30,29 @@ if(viewport.matches){
   li.on("click keydown", function(e){
     if(e.type === 'click' || (e.type === 'keydown' && e.keyCode === 13)){
       // e.preventDefault();
-      li.removeClass('menu-act');
-      $(this).addClass('menu-act');
+      // li.removeClass('menu-act');
+      // $(this).addClass('menu-act');
+      // span.removeClass('icon-minus').addClass('icon-plus');
+      // $(this).find('.menu-item').removeClass('icon-plus').addClass('icon-minus');
 
-      span.removeClass('icon-minus').addClass('icon-plus');
-      $(this).find('.menu-item').removeClass('icon-plus').addClass('icon-minus');
+      if($(this).hasClass('menu-act')){
+        $(this).removeClass('menu-act');
+        span.removeClass('icon-minus').addClass('icon-plus');
+        span.attr('aria-expanded', 'false');
+      }else{
+        li.removeClass('menu-act');
+        span.removeClass('icon-minus').addClass('icon-plus');
+        span.attr('aria-expanded', 'false');
+        $(this).addClass('menu-act');        
+        $(this).find('.menu-item').removeClass('icon-plus').addClass('icon-minus');
+        $(this).find('.menu-item').attr('aria-expanded', 'true');
+      }
     }
   });
-  
+  menu.on('focusout', function(){
+    nav.removeClass('is-act');
+  });
+  menu.on('focusin', function(){
+      nav.addClass('is-act');
+  });
 }
