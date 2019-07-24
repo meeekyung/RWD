@@ -132,7 +132,7 @@
           새소식 <span class="en-heading">WebCafe News</span>
         </h2>
         <figure class="news-container">
-          <video class="news-video rwd-img" poster="media/poster.jpg" controls>
+          <!-- <video class="news-video rwd-img" poster="media/poster.jpg" controls>
             <source src="media/stories.mp4" type="video/mp4" />
             <track
               src="media/stories-en.vtt"
@@ -140,7 +140,10 @@
               srclang="en"
               label="English Caption"
             />
-          </video>
+          </video> -->
+          <div class="iframe-container"> <!--반응형을 위해 컨테이너 div가 꼭 필요함 / 4:3 비율인지 16:9 비율인지도 확인필요-->
+            <iframe class="rwd-iframe" src="https://www.youtube.com/embed/0Jw7OBkkfzo" allowfullscreen></iframe>
+          </div>
           <figcaption class="a11y-hidden">구글 개발자 이야기</figcaption>
         </figure>
         <p class="news-summary">
