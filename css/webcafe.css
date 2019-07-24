@@ -223,7 +223,7 @@ input[type="search"]{
 /* 데스크탑 레이아웃 */
 @media screen and (min-width: 1000px){
   /* 데스크탑 레이아웃 */
-  .header, .menu{
+  .header, .menu, .main, .slogan{
     width: 1000px;
     margin: 0 auto;
   }
@@ -318,5 +318,29 @@ input[type="search"]{
   }
   .menu .menu-list:first-child{
     margin-left: 0;
+  }
+  /* 데스트탑 메인 콘텐츠 레이아웃 */
+  .main{
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: repeat(12, 65px); /*E11을 12번 입력해야함 - 원하는 columns만큼*/
+    grid-column-gap: 20px;
+    grid-template-areas: "book book book news news news news news news news news news"
+                         "board board board board twitter twitter twitter twitter twitter favorite favorite favorite";
+  } /*공백을 원할 경우 '.'를 사용하면 됨!*/
+  .recommend-book{
+    grid-area: book;
+  }
+  .news{
+    grid-area: news;
+  }
+  .board{
+    grid-area: board;
+  }
+  .favorite-site{
+    grid-area: favorite;
+  }
+  .twitter{
+    grid-area: twitter;
   }
 }
